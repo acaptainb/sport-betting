@@ -146,9 +146,9 @@ function assignNumber() {
 
 
 function drawTeam1() {
-    const Teamonemembers = players.filter((player) => player.teamNumber == 1)
     let MemberEmojis = ''
-    Teamonemembers.forEach((player) => MemberEmojis += player.emoji)
+    const TeamOneMembers = players.filter((player) => player.teamNumber == 1)
+    TeamOneMembers.forEach((player) => MemberEmojis += player.emoji)
 
     const memberLineupElement1 = document.getElementById('teamOneEmojis')
     memberLineupElement1.innerHTML = MemberEmojis
@@ -157,9 +157,9 @@ function drawTeam1() {
 
 
 function drawTeam2() {
-    const Teamtwomembers = players.filter((player) => player.teamNumber == 2)
     let MemberEmojis = ''
-    Teamtwomembers.forEach((player) => MemberEmojis += player.emoji)
+    const TeamTwoMembers = players.filter((player) => player.teamNumber == 2)
+    TeamTwoMembers.forEach((player) => MemberEmojis += player.emoji)
 
     const memberLineupElement = document.getElementById('teamTwoEmojis')
     memberLineupElement.innerHTML = MemberEmojis
@@ -167,3 +167,25 @@ function drawTeam2() {
 
 assignNumber()
 drawTeam1()
+drawTeam2()
+
+function betTeamOne() {
+    const TeamOneMembers = players.filter(player => player.teamNumber == 1)
+    const TeamTwoMembers = players.filter(player => player.teamNumber == 2)
+
+
+    let TeamOneSkills = 0
+    TeamOneMembers.forEach(player => { TeamOneSkills += player.skill })
+    let TeamTwoSkills = 0
+    TeamTwoMembers.forEach(player => { TeamTwoSkills += player.skill })
+
+
+    if (TeamOneSkills > TeamTwoSkills) {
+        bank += betAmount
+    }
+}
+
+
+function betTeamTwo() {
+
+}
